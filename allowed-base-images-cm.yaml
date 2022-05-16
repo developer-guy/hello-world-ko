@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+     name: baseimages
+     namespace: platform
+data:
+     allowedbaseimages: '["index.docker.io/developerguy/securebase:latest"]'

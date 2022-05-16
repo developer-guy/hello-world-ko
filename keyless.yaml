@@ -1,0 +1,24 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: check-image-keyless
+spec:
+  validationFailureAction: enforce
+  webhookTimeoutSeconds: 30
+  rules:
+    - name: check-image-keyless
+      match:
+        any:
+        - resources:
+            kinds:
+              - Pod
+      verifyImages:
+      - imageReferences:
+        - "index.docker.io/developerguy/hello-world-ko:v1"
+        attestors:
+        - entries:
+          - keyless:
+              subject: "developerguyn@gmail.com"
+              issuer: "https://github.com/login/oauth"
+              rekor:
+                url: https://rekor.sigstore.dev
