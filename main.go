@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Printf("I'm running on OS %s and arch %s", runtime.GOOS, runtime.GOARCH)
+	fmt.Printf("I'm running on OS %s and arch %s, yay!!!", runtime.GOOS, runtime.GOARCH)
 }
